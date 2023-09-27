@@ -1,0 +1,7 @@
+
+cron:
+- description: Log bucket permissions and project members
+  url: /tasks/log_buckets_and_members
+  schedule: every 30 minutes
+  target: cron
+

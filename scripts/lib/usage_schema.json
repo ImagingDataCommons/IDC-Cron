@@ -1,0 +1,19 @@
+[
+{"name": "time", "type": "TIMESTAMP", "mode": "REQUIRED", "description": "<add description here>"},
+{"name": "c_ip", "type": "STRING", "mode": "REQUIRED", "description": "<add description here>"},
+{"name": "c_ip_type", "type": "INTEGER", "mode": "REQUIRED", "description": "<add description here>"},
+{"name": "c_ip_region", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_method", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_uri", "type": "STRING", "mode": "REQUIRED", "description": "<add description here>"},
+{"name": "sc_status", "type": "INTEGER", "mode": "REQUIRED", "description": "<add description here>"},
+{"name": "cs_bytes", "type": "INTEGER", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "sc_bytes", "type": "INTEGER", "mode": "REQUIRED", "description": "<add description here>"},
+{"name": "time_taken_micros", "type": "INTEGER", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_host", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_referer", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_user_agent", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "s_request_id", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_operation", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_bucket", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"},
+{"name": "cs_object", "type": "STRING", "mode": "NULLABLE", "description": "<add description here>"}
+]

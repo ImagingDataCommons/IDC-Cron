@@ -1,0 +1,9 @@
+runtime: python37
+service: cron
+
+handlers:
+- url: /tasks/.*
+  script: auto
+  secure: always
+
+instance_class: F2
