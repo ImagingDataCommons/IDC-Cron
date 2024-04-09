@@ -168,7 +168,4 @@ workflows:
           filters:
             branches:
               only:
-                - main
-                - idc-cron-prod
-                - idc-cron-test
                 - idc-cron-admin
