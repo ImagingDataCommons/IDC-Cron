@@ -15,6 +15,12 @@ echo "Preparing System..."
 apt-get -y install software-properties-common
 apt-get update -qq
 
+#
+# Needed due to CircleCI changes: dropping CA certs?
+#
+
+apt-get install ca-certificates
+
 # Install apt-get dependencies
 echo "Installing Dependencies..."
 apt-get install -y --force-yes unzip libffi-dev libssl-dev python3-dev libpython3-dev git ruby g++ curl dos2unix python3.5
@@ -43,7 +49,7 @@ if [ -z "${CI}" ] || [ ! -d "/usr/lib/google-cloud-sdk" ]; then
     echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
     apt-get install apt-transport-https ca-certificates
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-    apt-get update -qq ]
+    apt-get update -qq
     apt-get -y install google-cloud-sdk=
     apt-get -y install google-cloud-sdk-app-engine-python
     echo "Google Cloud SDK Installed"
