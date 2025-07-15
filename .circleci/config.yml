@@ -156,7 +156,7 @@ jobs:
       - deploy:
           command: |
             sudo -E /bin/bash ./shell/unpack_for_deployment.sh
-            sudo -E gcloud app deploy --verbosity=debug ./app.yaml ./cron.yaml --quiet
+            sudo -E gcloud app deploy --verbosity=debug ./app.yaml --service-account=${CRON_RUNTIME_SA_NAME} --quiet
             sudo -E /bin/sh ./shell/post-deployment.sh
 workflows:
   version: 2

@@ -26,9 +26,8 @@ from config import settings
 import logging
 
 # Get standard logger set up
-USER_GCP_ACCESS_CREDENTIALS = settings['GOOGLE_APPLICATION_CREDENTIALS']
 gcp_id = settings['DEPLOY_PROJECT_ID']
-client = glog.Client.from_service_account_json(USER_GCP_ACCESS_CREDENTIALS, project=gcp_id)
+client = glog.Client(project=gcp_id)
 client.get_default_handler()
 client.setup_logging()
 
