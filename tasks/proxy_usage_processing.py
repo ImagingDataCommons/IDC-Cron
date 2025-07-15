@@ -158,13 +158,12 @@ Do the work
 '''
 def process_logs():
 
-    USER_GCP_ACCESS_CREDENTIALS = settings['GOOGLE_APPLICATION_CREDENTIALS']
     DEPLOY_PROJECT = settings['DEPLOY_PROJECT_ID']
     PROXY_PROJECT_IDS = settings['PROXY_PROJECT_IDS']
     PROXY_PROJECT_TAGS = settings['PROXY_PROJECT_TAGS']
 
     try:
-        bqclient = bigquery.Client.from_service_account_json(USER_GCP_ACCESS_CREDENTIALS, project=DEPLOY_PROJECT)
+        bqclient = bigquery.Client(project=DEPLOY_PROJECT)
     except Exception as e:
         logging.error("Exception while building SC2")
         logging.exception(e)

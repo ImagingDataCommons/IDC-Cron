@@ -48,7 +48,6 @@ def logit(client):
 def logit_for_project(targ_proj, targ_tag, client):
 
     logging.info('Into logit()')
-    USER_GCP_ACCESS_CREDENTIALS = settings['GOOGLE_APPLICATION_CREDENTIALS']
 
     bucket_acl_logger = client.logger(settings['BUCKET_ACL_LOG_NAME'].format(targ_tag))
     bucket_def_acl_logger = client.logger(settings['BUCKET_DEFAULT_ACL_LOG_NAME'].format(targ_tag))
@@ -56,7 +55,7 @@ def logit_for_project(targ_proj, targ_tag, client):
     bucket_iam_logger = client.logger(settings['BUCKET_IAM_LOG_NAME'].format(targ_tag))
     project_iam_logger = client.logger(settings['PROJECT_IAM_LOG_NAME'].format(targ_tag))
 
-    credentials = GoogleCredentials.from_stream(USER_GCP_ACCESS_CREDENTIALS)
+    credentials = GoogleCredentials.get_application_default()
 
     ##
     ## There is an alpha implementation of the Resource Manager in the V2 API, but it does
