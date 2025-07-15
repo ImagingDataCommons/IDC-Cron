@@ -351,14 +351,13 @@ def sink_from_bucket_to_table_for_project(project, tag, bq_client, storage_clien
 
 def sink_from_bucket_to_table():
 
-    USER_GCP_ACCESS_CREDENTIALS = settings['GOOGLE_APPLICATION_CREDENTIALS']
     DEPLOY_PROJECT_ID = settings['DEPLOY_PROJECT_ID']
     PROJECT_IDS=settings['INGEST_STORAGE_LOGS_PROJECT_IDS']
     PROJECT_TAGS=settings['INGEST_STORAGE_LOGS_PROJECT_TAGS']
 
     try:
-        bq_client = bigquery.Client.from_service_account_json(USER_GCP_ACCESS_CREDENTIALS, project=DEPLOY_PROJECT_ID)
-        storage_client = storage.Client.from_service_account_json(USER_GCP_ACCESS_CREDENTIALS, project=DEPLOY_PROJECT_ID)
+        bq_client = bigquery.Client(project=DEPLOY_PROJECT_ID)
+        storage_client = storage.Client(project=DEPLOY_PROJECT_ID)
     except Exception as e:
         logging.error("Exception while building SC2")
         logging.exception(e)

@@ -1,17 +1,11 @@
 mkdir ./json
 mkdir ./txt
 
-# These are project-level YAMLs which are loaded from the production bucket
-gsutil cp "gs://${DEPLOYMENT_BUCKET}/${PROJECT_CRON_YAML}" ./cron.yaml
-
 # AppEngine-module specific app.yaml
 gsutil cp "gs://${DEPLOYMENT_BUCKET}/${CRON_APP_YAML}" ./app.yaml
 
 # Print module and version of app.yaml
 grep '^service:' ./app.yaml
-
-# Cron runtime key
-gsutil cp "gs://${DEPLOYMENT_BUCKET}/${CRON_RUNTIME_SA_KEY}" ./privatekey.json
 
 # Configuration file (env vars not used in cron)
 gsutil cp "gs://${DEPLOYMENT_BUCKET}/${IDC_CRON_CONFIG}" ./config.txt
