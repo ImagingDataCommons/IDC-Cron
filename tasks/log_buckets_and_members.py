@@ -102,7 +102,7 @@ def logit_for_project(targ_proj, targ_tag, client):
     #
 
     try:
-        storage_client2 = storage.Client.(project=targ_proj)
+        storage_client2 = storage.Client(project=targ_proj)
     except Exception as e:
         logging.error("Exception while building SC2")
         logging.exception(e)
